@@ -2,7 +2,7 @@ import express from 'express';
 import { hashedPassword } from '../1-dal/hashedPssword';
 import { generateToken } from '../1-dal/jwt';
 import { UserInterface } from '../models/UserModel';
-import { getAllUsers, register } from '../3-logic/usersLogic';
+import { getAllUsers, googleLogin, register } from '../3-logic/usersLogic';
 
 export const UserRoute = express.Router();
 
@@ -38,5 +38,27 @@ UserRoute.post('/login', async (req, res) => {
         }
     } catch (e) {
         res.status(400).json('Something went wrong...')
+    }
+})
+
+
+UserRoute.post('/googlelogin', async (req, res) => {
+    const user = req.body;
+
+    try {
+        const response = await googleLogin(user)
+        console.log(response);
+        if (response.length > 0) {
+            user.id = response[0].id;
+            const token = await generateToken(user)
+            res.status(200).json(token)
+        }else{
+            user.id = response.insertId;
+            const token = await generateToken(user)
+            res.status(200).json(token)
+        }
+
+    } catch (e) {
+        res.status(400).json(e)
     }
 })
