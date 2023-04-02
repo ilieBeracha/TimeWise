@@ -9,6 +9,7 @@ import { userService } from '../../services/UserService';
 import { useDispatch } from 'react-redux';
 import { loginRedux } from '../../app/authSlice';
 import { toastAlerts } from '../../helpers/toastAlerts';
+import GoogleAuth from '../GoogleAuth/GoogleAuth';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -42,8 +43,8 @@ export default function Login() {
     }
   }
   return (
-    <div>
-      <button onClick={handleOpen}>Login</button>
+    <div className='authForm'>
+      <button className='authFormBtn' onClick={handleOpen}>Login</button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -51,7 +52,7 @@ export default function Login() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <h1>Login: </h1>
+          <h2>Login: </h2>
           <div className="register-form-container">
             <form onSubmit={handleSubmit(loginForm)}>
               <div className="input-group">
@@ -72,6 +73,7 @@ export default function Login() {
               </div>
               <button type="submit">Login</button>
             </form>
+            <GoogleAuth handleClose={handleClose} />
           </div>
         </Box>
       </Modal>

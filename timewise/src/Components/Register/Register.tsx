@@ -1,7 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import './Register.css';
 import { useForm } from 'react-hook-form';
@@ -10,6 +8,11 @@ import { userService } from '../../services/UserService';
 import { useDispatch } from 'react-redux';
 import { loginRedux } from '../../app/authSlice';
 import { toastAlerts } from '../../helpers/toastAlerts';
+import { GoogleLogin } from '@react-oauth/google';
+import jwtDecode from 'jwt-decode';
+import { gmailService } from '../../services/GmailService';
+import GoogleAuth from '../GoogleAuth/GoogleAuth';
+
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -44,9 +47,33 @@ export default function Register() {
     }
   }
 
+  // async function googleLogin(data: any) {
+  //   console.log(data);
+  //   const userData: any = {
+  //     firstName: data.given_name,
+  //     lastName: data.family_name,
+  //     email: data.email,
+  //   }
+  //   console.log(userData);
+
+  //   try {
+  //     const res = await userService.googleLogin(userData);
+  //     if (res.status === 200) {
+  //       handleClose();
+  //       dispatch(loginRedux(res.data))
+  //       toastAlerts.toastSuccess("Register successfull")
+  //     }
+  //   } catch (e: any) {
+  //     toastAlerts.toastError(e.response.data)
+
+  //   }
+  // }
+
   return (
-    <div>
-      <button onClick={handleOpen}>Register</button>
+    <div className='authForm'>
+      <div className='authFormBtn'>
+        <button onClick={handleOpen}>Register</button>
+      </div>
       <Modal
         open={open}
         onClose={handleClose}
@@ -54,9 +81,9 @@ export default function Register() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <h1>Register: </h1>
+          <h2>Register: </h2>
           <div className="register-form-container">
-            <form onSubmit={handleSubmit(registerForm)}>
+            <form method="post" onSubmit={handleSubmit(registerForm)}>
               <div className="input-group">
                 <label htmlFor="firstName">First Name:</label>
                 <input
@@ -91,6 +118,19 @@ export default function Register() {
               </div>
               <button type="submit">Register</button>
             </form>
+            {/* <GoogleLogin
+              onSuccess={(credentialResponse: any) => {
+                const userData = jwtDecode(credentialResponse.credential);
+                googleLogin(userData);
+              }}
+              onError={() => {
+                console.log('Login Failed');
+              }}
+            />; */}
+            <GoogleAuth handleClose={handleClose} />
+
+
+
           </div>
         </Box>
       </Modal>
