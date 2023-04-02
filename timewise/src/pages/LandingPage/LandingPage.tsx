@@ -2,13 +2,22 @@ import "./LandingPage.css";
 import logo from "../../assets/images/mainLogo.png";
 import Register from "../../Components/Register/Register";
 import Login from "../../Components/Login/Login";
-import notif from '../../assets/images/notification.png'
-import apps from '../../assets/images/apps.png'
-import analytics from '../../assets/images/analytics.png'
+import notif from '../../assets/images/notification.png';
+import apps from '../../assets/images/apps.png';
+import analytics from '../../assets/images/analytics.png';
+
+// supported logos
+import gmailLogo from '../../assets/images/gmail.png';
+import slackLogo from '../../assets/images/slack.png';
+import asanaLogo from '../../assets/images/asana.png';
+import linkedinLogo from '../../assets/images/linkedin.png';
+import messengerLogo from '../../assets/images/messenger.png';
+import whatsappLogo from '../../assets/images/whatsapp.png';
+
 function LandingPage(): JSX.Element {
 
-    function goto(){
-        location.href='#LandingPageAboutUs'
+    function goto() {
+        location.href = '#LandingPageAboutUs'
     }
     return (
         <div className="LandingPage">
@@ -29,7 +38,7 @@ function LandingPage(): JSX.Element {
 
             <div id="LandingPageWelcome" className="LandingPageWelcome">
                 <h1>Welcome to <span>TimeWise</span> </h1>
-                
+
                 <p>Stay on top of your social life and never miss a message again with our all-in-one tracking platform.</p>
                 <button onClick={goto} className="button-51">Learn more</button>
             </div>
@@ -79,6 +88,33 @@ function LandingPage(): JSX.Element {
                 <div className="LandingPageWebsitesHeader">
                     <h1>Supported Websites</h1>
                     <div className="Marker"></div>
+                </div>
+
+                <div className="LandingPageWebsitesDiv">
+                    <div className="LandingPageWebsitesOne">
+                        <img src={gmailLogo} alt="" />
+                        <h3>Gmail</h3>
+                    </div>
+                    <div className="LandingPageWebsitesOne">
+                        <img src={linkedinLogo} alt="" />
+                        <h3>Linkedin</h3>
+                    </div>
+                    <div className="LandingPageWebsitesOne">
+                        <img src={slackLogo} alt="" />
+                        <h3>Slack</h3>
+                    </div>
+                    <div className="LandingPageWebsitesOne">
+                        <img src={whatsappLogo} alt="" />
+                        <h3>Whatsapp</h3>
+                    </div>
+                    <div className="LandingPageWebsitesOne">
+                        <img src={asanaLogo} alt="" />
+                        <h3>Asana</h3>
+                    </div>
+                    <div className="LandingPageWebsitesOne">
+                        <img src={messengerLogo} alt="" />
+                        <h3>Messanger</h3>
+                    </div>
                 </div>
 
             </div>

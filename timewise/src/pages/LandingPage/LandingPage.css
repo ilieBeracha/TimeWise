@@ -63,7 +63,8 @@
 }
 
 .LandingPageWelcome h1 {
-    font-weight: bold;
+    font-weight:bolder;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .LandingPageWelcome span {
@@ -79,6 +80,8 @@
 
 .LandingPageWelcome p {
     font-size: 18px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+
 }
 
 
@@ -177,6 +180,42 @@
     align-items: center;
     flex-direction: column;
     gap: 10px;
+}
+
+.LandingPageWebsitesDiv {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 20px;
+    gap: 50px;
+    margin: 0 auto;
+}
+
+.LandingPageWebsitesOne {
+    min-width: 25%;
+    min-height: 30%;
+    background-color: white;
+    display: flex;
+    /* flex-direction: column; */
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+
+}
+
+.LandingPageWebsitesOne:hover{
+    position: relative;
+    bottom: 3px;
+}
+
+.LandingPageWebsitesOne img{
+    width: 80px;
 }
 
 /* @media screen and (max-width: 768px) {

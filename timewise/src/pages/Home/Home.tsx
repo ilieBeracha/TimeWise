@@ -11,26 +11,30 @@ function Home(): JSX.Element {
     const SCOPES = "https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/gmail.readonly";
 
     const handleAuthClick = () => {
-        const params = new URLSearchParams({
-            client_id: CLIENT_ID,
-            redirect_uri: REDIRECT_URI,
-            response_type: 'token',
-            scope: SCOPES,
-        });
+        // const params = new URLSearchParams({
+        //     client_id: CLIENT_ID,
+        //     redirect_uri: REDIRECT_URI,
+        //     response_type: 'token',
+        //     scope: SCOPES,
+        // });
 
-        const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
+        // const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
 
+        
+        const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?scope=${encodeURIComponent(SCOPES)}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&response_type=token&client_id=${CLIENT_ID}`;
         window.location.href = authUrl;
+        console.log(authUrl);
+        
     };
 
    
 
-    useEffect(() => {
-        const hashParams = new URLSearchParams(window.location.hash.substr(1));
-        const token:any = hashParams.get('access_token');
-        setAccessToken(token);
-        gmailService.getMails(token);
-    }, []);
+    // useEffect(() => {
+    //     const hashParams = new URLSearchParams(window.location.hash.substr(1));
+    //     const token:any = hashParams.get('access_token');
+    //     setAccessToken(token);
+    //     gmailService.getMails(token);
+    // }, []);
 
     return (
         <div className="Home">
