@@ -4,7 +4,7 @@
 
 }
 
-/* .LandingPageBackground {
+.LandingPageBackground {
     position: absolute;
     top: 0;
     left: 0;
@@ -13,14 +13,14 @@
     z-index: -1;
     background-image: url(../../assets/images/background2.jpg);
     background-attachment: fixed;
-} */
+}
 
 
 .LandingPageHeader {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 10%;
+    height: 8%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,19 +51,15 @@
 .LandingPageWelcome {
     width: 100%;
     height: 100vh;
-    /* background-image: linear-gradient(to bottom right, #a7c1f5, #f5a7a7); */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 30px;
-
-    /* background-image: url(../../assets//images/background2.jpg); */
-
 }
 
 .LandingPageWelcome h1 {
-    font-weight:bolder;
+    font-weight: bolder;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
@@ -80,7 +76,7 @@
 
 .LandingPageWelcome p {
     font-size: 18px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
@@ -101,11 +97,14 @@
     justify-content: center;
     align-items: center;
     /* background-color: bisque; */
+    /* background-color: #f4f4f4; */
+    background-image: linear-gradient(to bottom right, #a7c1f5, #f5a7a7);
+
 }
 
 .LandingPageAboutUsHeader {
     width: 100%;
-    height: 20%;
+    height: 30%;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -122,7 +121,7 @@
 
 .LandingPageAboutUsFeatures {
     width: 90%;
-    height: 80%;
+    height: 70%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -131,13 +130,21 @@
 
 .LandingPageAboutUsFeature {
     width: 20%;
-    height: 55%;
+    height: 65%;
     min-width: 250px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
-    overflow: hidden;
-    position: relative;
-    background-color: white;
+    /* border-radius: 10px; */
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6); */
+    /* overflow: hidden; */
+    /* position: relative; */
+    /* background-color: white; */
+
+
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 32px;
 }
 
 .LandingPageAboutUsFeatureHeader {
@@ -148,7 +155,7 @@
     justify-content: center;
     align-items: center;
     gap: 20px;
-    border-bottom: 1px solid #f5a7a7;
+    /* border-bottom: 1px solid #f5a7a7; */
 }
 
 .LandingPageAboutUsFeatureHeader img {
@@ -180,6 +187,8 @@
     align-items: center;
     flex-direction: column;
     gap: 10px;
+    
+    
 }
 
 .LandingPageWebsitesDiv {
@@ -209,12 +218,12 @@
 
 }
 
-.LandingPageWebsitesOne:hover{
+.LandingPageWebsitesOne:hover {
     position: relative;
     bottom: 3px;
 }
 
-.LandingPageWebsitesOne img{
+.LandingPageWebsitesOne img {
     width: 80px;
 }
 

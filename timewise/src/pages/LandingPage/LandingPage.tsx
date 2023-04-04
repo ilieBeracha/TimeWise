@@ -2,25 +2,20 @@ import "./LandingPage.css";
 import logo from "../../assets/images/mainLogo.png";
 import Register from "../../Components/Register/Register";
 import Login from "../../Components/Login/Login";
-import notif from '../../assets/images/notification.png';
-import apps from '../../assets/images/apps.png';
-import analytics from '../../assets/images/analytics.png';
+import background from '../../assets/images/background2.jpg'
 
-// supported logos
-import gmailLogo from '../../assets/images/gmail.png';
-import slackLogo from '../../assets/images/slack.png';
-import asanaLogo from '../../assets/images/asana.png';
-import linkedinLogo from '../../assets/images/linkedin.png';
-import messengerLogo from '../../assets/images/messenger.png';
-import whatsappLogo from '../../assets/images/whatsapp.png';
+import { useRef } from "react";
 
 function LandingPage(): JSX.Element {
+    const ref: any = useRef()
+
 
     function goto() {
         location.href = '#LandingPageAboutUs'
     }
     return (
         <div className="LandingPage">
+
             <div className="LandingPageBackground"></div>
             <div className="LandingPageHeader">
                 <div className="LandingPageHeaderLogo">
@@ -30,18 +25,22 @@ function LandingPage(): JSX.Element {
                 <div className="LandingPageHeaderLinks">
                     <a href="#LandingPageWelcome">Welcome</a>
                     <a href="#LandingPageAboutUs">About us</a>
-                    <a href="#LandingPageWebsites">Supported Websites</a>
+                    <a href="#LandingPageWebsites">More</a>
                     <Register />
                     <Login />
                 </div>
             </div>
 
+            {/* 1 */}
+
             <div id="LandingPageWelcome" className="LandingPageWelcome">
                 <h1>Welcome to <span>TimeWise</span> </h1>
 
-                <p>Stay on top of your social life and never miss a message again with our all-in-one tracking platform.</p>
+                {/* <p>Personalized travel planning for unforgettable adventures.</p> */}
                 <button onClick={goto} className="button-51">Learn more</button>
             </div>
+
+            {/* 2 */}
 
             <div id="LandingPageAboutUs" className="LandingPageAboutUs">
                 <div className="LandingPageAboutUsHeader">
@@ -51,74 +50,44 @@ function LandingPage(): JSX.Element {
                 <div className="LandingPageAboutUsFeatures">
                     <div className="LandingPageAboutUsFeature">
                         <div className="LandingPageAboutUsFeatureHeader">
-                            {/* <NotificationsActiveIcon fontSize="large" /> */}
-                            <img src={notif} alt="" />
-                            <h3>Smart Notifications</h3>
+
                         </div>
                         <div className="LandingPageAboutUsFeatureContent">
-                            <span> Our platform uses advanced algorithms to intelligently prioritize and categorize your notifications, so you can quickly see the most important messages without getting bogged down by irrelevant alerts.</span>
+
                         </div>
                     </div>
                     <div className="LandingPageAboutUsFeature">
                         <div className="LandingPageAboutUsFeatureHeader">
-                            {/* <AppRegistrationIcon fontSize="large" /> */}
-                            <img src={apps} alt="" />
-                            <h3>Cross-Platform Integration</h3>
+
                         </div>
                         <div className="LandingPageAboutUsFeatureContent">
-                            <span>TimeWise seamlessly integrates with all the major social media and messaging apps, so you can manage all your communication in one place, no matter what platform your friends and colleagues are using.</span>
+
                         </div>
                     </div>
                     <div className="LandingPageAboutUsFeature">
                         <div className="LandingPageAboutUsFeatureHeader">
-                            {/* <AnalyticsIcon fontSize="large" /> */}
-                            <img src={analytics} alt="" />
-                            <h3>Personalized Analytics</h3>
+
                         </div>
                         <div className="LandingPageAboutUsFeatureContent">
-                            <span>Get deep insights into your social media activity and behavior, including how much time you spend on each app, which contacts you interact with the most, and what types of messages you send and receive the most frequently. Use this data to optimize your social media usage and improve your digital well-being.</span>
+
                         </div>
                     </div>
                 </div>
-
             </div>
 
-
+            {/* 3 */}
+            
             <div id="LandingPageWebsites" className="LandingPageWebsites">
                 <div className="LandingPageWebsitesHeader">
-                    <h1>Supported Websites</h1>
+                    <h1>More</h1>
                     <div className="Marker"></div>
                 </div>
 
                 <div className="LandingPageWebsitesDiv">
-                    <div className="LandingPageWebsitesOne">
-                        <img src={gmailLogo} alt="" />
-                        <h3>Gmail</h3>
-                    </div>
-                    <div className="LandingPageWebsitesOne">
-                        <img src={linkedinLogo} alt="" />
-                        <h3>Linkedin</h3>
-                    </div>
-                    <div className="LandingPageWebsitesOne">
-                        <img src={slackLogo} alt="" />
-                        <h3>Slack</h3>
-                    </div>
-                    <div className="LandingPageWebsitesOne">
-                        <img src={whatsappLogo} alt="" />
-                        <h3>Whatsapp</h3>
-                    </div>
-                    <div className="LandingPageWebsitesOne">
-                        <img src={asanaLogo} alt="" />
-                        <h3>Asana</h3>
-                    </div>
-                    <div className="LandingPageWebsitesOne">
-                        <img src={messengerLogo} alt="" />
-                        <h3>Messanger</h3>
-                    </div>
+
                 </div>
 
             </div>
-
         </div>
     );
 }

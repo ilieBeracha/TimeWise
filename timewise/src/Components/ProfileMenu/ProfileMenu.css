@@ -1,0 +1,33 @@
+.ProfileMenu {
+    position: relative;
+    display: inline-block;
+}
+
+.ProfileMenu__trigger {
+    cursor: pointer;
+}
+
+.ProfileMenu__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    z-index: 1;
+}
+
+.ProfileMenu__dropdown ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ProfileMenu__dropdown li {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.ProfileMenu__dropdown li:hover {
+    background-color: #f2f2f2;
+}
