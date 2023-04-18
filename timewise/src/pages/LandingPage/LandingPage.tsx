@@ -46,22 +46,22 @@ function LandingPage(): JSX.Element {
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={0.95} speed={0.8} style={{ opacity: 0.7 }}>
+        <ParallaxLayer offset={0.85} speed={0.8} style={{ opacity: 0.7 }}>
           <img
-            src={earth}
+            src={cloud}
             style={{ display: "block", width: "20%", marginLeft: "55%" }}
           />
-          {/* <img
-            src={satellite}
+          <img
+            src={cloud}
             style={{ display: "block", width: "10%", marginLeft: "15%" }}
-          /> */}
+          />
         </ParallaxLayer>
 
 
 
-        <ParallaxLayer offset={1.3} speed={-0.3} style={{ pointerEvents: 'none' }}>
+        {/* <ParallaxLayer offset={1.3} speed={-0.3} style={{ pointerEvents: 'none' }}>
           <img src={satellite} style={{ width: '10%', marginLeft: '20%' }} />
-        </ParallaxLayer>
+        </ParallaxLayer> */}
 
         <ParallaxLayer offset={1} speed={0.8} style={{ opacity: 0.1 }}>
           <img src={cloud} style={{ display: 'block', width: '20%', marginLeft: '55%' }} />
@@ -76,12 +76,16 @@ function LandingPage(): JSX.Element {
         <ParallaxLayer offset={1} speed={0.2} style={{ opacity: 0.2 }}>
           <img src={cloud} style={{ display: 'block', width: '10%', marginLeft: '10%' }} />
           <img src={cloud} style={{ display: 'block', width: '20%', marginLeft: '75%' }} />
+
         </ParallaxLayer>
 
         <ParallaxLayer offset={1.6} speed={-0.1} style={{ opacity: 0.4 }}>
+        <img src={earth} style={{ display: 'block', width: '15%', marginLeft: '75%' }} />
+
           <img src={cloud} style={{ display: 'block', width: '20%', marginLeft: '60%' }} />
           <img src={cloud} style={{ display: 'block', width: '25%', marginLeft: '30%' }} />
           <img src={cloud} style={{ display: 'block', width: '10%', marginLeft: '80%' }} />
+
         </ParallaxLayer>
 
         <ParallaxLayer offset={2.6} speed={0.4} style={{ opacity: 0.6 }}>
