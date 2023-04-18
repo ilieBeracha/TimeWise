@@ -7,11 +7,14 @@ import satellite from "../../assets/images/satellite.svg";
 import earth from "../../assets/images/earth.svg";
 import cloud from "../../assets/images/cloud.svg";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setLogged } from "../../app/isLoggedSlice";
+import { dealsService } from "../../services/dealsService";
+
+
 
 function LandingPage(): JSX.Element {
   const parallax = useRef<IParallax>(null!);

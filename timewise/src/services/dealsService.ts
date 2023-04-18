@@ -1,26 +1,25 @@
 import axios from "axios";
+import { AVIATIONSSTACK_API_KEY } from "./config";
 
 class DealsService {
   getDealsByParams() {
     const response = axios
-      .get("https://api.example.com/deals", {
-        params: {
-          destination: "any",
-          departure_date: "any",
-          duration: "any",
-          price_range: "any",
-        },
+      .get("https://api.aviationstack.com/v1/flights", {
         headers: {
-          Authorization: "Bearer YOUR_ACCESS_TOKEN",
-          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          apikey: AVIATIONSSTACK_API_KEY,
+        },
+        params: {
+          flight_price: "true",
+          dep_iata: "JFK",
+          arr_iata: "LAX",
+          flight_status: "active",
+          limit: 10,
         },
       })
-      .then((response) => {
-        const data = response.data;
-        // Process the travel deals data
-      })
+      .then((response) => console.log(response.data))
       .catch((error) => console.error(error));
-    return response;
+      return response
   }
 }
 

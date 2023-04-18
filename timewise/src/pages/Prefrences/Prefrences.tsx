@@ -169,6 +169,7 @@ export default function Prefrences() {
               <div className="QuestionDiv">
                 <h1>What type of vacation are you looking for?</h1>
                 <textarea
+                  placeholder="Beach vacation, City break ,Adventure vacation, Luxury vacation, Wellness retreat, Cultural vacation, Safari vacation, Ski vacation, Road trip vacation, Cruise vacation..."
                   {...register("type")}
                   onChange={(e) => setAnswerFilled(e.target.value)}
                 ></textarea>
@@ -215,7 +216,7 @@ export default function Prefrences() {
             )}
             {activeStep === 5 ? (
               <div className="QuestionDiv">
-                Done!
+                <h1>Done!</h1>
                 <button type="submit">Finish and start exploring!</button>
                 {/* <Button type="button" onClick={handleReset}>
                   Double check
