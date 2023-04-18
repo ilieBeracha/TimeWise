@@ -66,6 +66,7 @@
     align-items: center;
     gap: 30px;
     color: white;
+    text-align: center;
 }
 
 .LandingPageWelcome h1 {
@@ -144,7 +145,7 @@
 
 .LandingPageAboutUsFeature {
     width: 20%;
-    height: 65%;
+    height: 250px;
     min-width: 200px;
     /* border-radius: 10px; */
     /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6); */

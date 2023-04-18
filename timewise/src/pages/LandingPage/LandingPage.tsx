@@ -18,7 +18,7 @@ function LandingPage(): JSX.Element {
       <div className="LandingPageBackground"></div>
       <div className="LandingPageHeader">
         <div className="LandingPageHeaderLogo">
-          <img src={logo} alt="" />
+          {/* <img src={logo} alt="" /> */}
         </div>
 
         <div className="LandingPageHeaderLinks">
