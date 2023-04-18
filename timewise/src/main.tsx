@@ -18,6 +18,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <ToastContainer />
         </BrowserRouter>
       </Provider>
-    </GoogleOAuthProvider>;
-  </React.StrictMode>,
+    </GoogleOAuthProvider>
+  </React.StrictMode>
 )

@@ -6,12 +6,13 @@ import LandingPage from './pages/LandingPage/LandingPage';
 
 function App() {
   const authSlice = useSelector((state: any) => state.auth);
+  const loggedSlice = useSelector((state: any) => state.logged);
 
   return (
     <div className="App">
       <Routes>
         {
-          !authSlice ?
+          !loggedSlice ?
             <Route path="*" element={<LandingPage />} />
             :
             <Route path="*" element={<Home />} />

@@ -1,0 +1,43 @@
+.Prefrences{
+    width: 80%;
+    height: 90vh;
+    margin: 0 auto;
+    
+}
+
+
+.QuestionDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  gap: 30px;
+}
+
+.QuestionDiv h1 {
+  font-size: 2rem;
+}
+
+.QuestionDiv textarea {
+  resize: none;
+  width: 60%;
+  height: 60%;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+.Prefrences form{
+  height: 100%;
+}
+
+#PrevButton{
+  width: 40%;
+}
+
+#NextButton{
+  background-color: blue;
+  color: white;
+  width: 40%;
+}

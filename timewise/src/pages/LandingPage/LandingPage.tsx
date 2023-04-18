@@ -9,23 +9,27 @@ import cloud from "../../assets/images/cloud.svg";
 
 import { useRef } from "react";
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setLogged } from "../../app/isLoggedSlice";
 
 function LandingPage(): JSX.Element {
   const parallax = useRef<IParallax>(null!);
+  const dispatch = useDispatch();
 
   return (
     <div className="LandingPage">
       <div className="LandingPageBackground"></div>
-      <div className="LandingPageHeader">
+      {/* <div className="LandingPageHeader">
         <div className="LandingPageHeaderLogo">
-          {/* <img src={logo} alt="" /> */}
+          <img src={logo} alt="" />
         </div>
 
         <div className="LandingPageHeaderLinks">
           <Register />
           <Login />
         </div>
-      </div>
+      </div> */}
 
       <Parallax pages={3} ref={parallax} style={{ top: 0, left: 0 }}>
         {/* 1 */}
@@ -42,7 +46,7 @@ function LandingPage(): JSX.Element {
             </h1>
 
             <p>Personalized travel planning for unforgettable adventures.</p>
-            {/* <button onClick={goto} className="button-51">Learn more</button> */}
+            <button onClick={()=> dispatch(setLogged())}>Start</button>
           </div>
         </ParallaxLayer>
 
