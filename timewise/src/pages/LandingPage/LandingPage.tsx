@@ -5,7 +5,7 @@ import Register from "../../Components/Register/Register";
 import Login from "../../Components/Login/Login";
 import satellite from "../../assets/images/satellite.svg";
 import earth from "../../assets/images/earth.svg";
-import clients_main from "../../assets/images/clients-main.svg";
+import cloud from "../../assets/images/cloud.svg";
 
 import { useRef } from "react";
 import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
@@ -51,10 +51,42 @@ function LandingPage(): JSX.Element {
             src={earth}
             style={{ display: "block", width: "20%", marginLeft: "55%" }}
           />
-          <img
+          {/* <img
             src={satellite}
             style={{ display: "block", width: "10%", marginLeft: "15%" }}
-          />
+          /> */}
+        </ParallaxLayer>
+
+
+
+        <ParallaxLayer offset={1.3} speed={-0.3} style={{ pointerEvents: 'none' }}>
+          <img src={satellite} style={{ width: '10%', marginLeft: '20%' }} />
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={1} speed={0.8} style={{ opacity: 0.1 }}>
+          <img src={cloud} style={{ display: 'block', width: '20%', marginLeft: '55%' }} />
+          <img src={cloud} style={{ display: 'block', width: '10%', marginLeft: '15%' }} />
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={1.75} speed={0.5} style={{ opacity: 0.1 }}>
+          <img src={cloud} style={{ display: 'block', width: '20%', marginLeft: '70%' }} />
+          <img src={cloud} style={{ display: 'block', width: '20%', marginLeft: '40%' }} />
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={1} speed={0.2} style={{ opacity: 0.2 }}>
+          <img src={cloud} style={{ display: 'block', width: '10%', marginLeft: '10%' }} />
+          <img src={cloud} style={{ display: 'block', width: '20%', marginLeft: '75%' }} />
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={1.6} speed={-0.1} style={{ opacity: 0.4 }}>
+          <img src={cloud} style={{ display: 'block', width: '20%', marginLeft: '60%' }} />
+          <img src={cloud} style={{ display: 'block', width: '25%', marginLeft: '30%' }} />
+          <img src={cloud} style={{ display: 'block', width: '10%', marginLeft: '80%' }} />
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={2.6} speed={0.4} style={{ opacity: 0.6 }}>
+          <img src={cloud} style={{ display: 'block', width: '20%', marginLeft: '5%' }} />
+          <img src={cloud} style={{ display: 'block', width: '15%', marginLeft: '75%' }} />
         </ParallaxLayer>
 
         {/* 2 */}
