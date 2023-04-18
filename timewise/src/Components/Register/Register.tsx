@@ -10,7 +10,6 @@ import { loginRedux } from '../../app/authSlice';
 import { toastAlerts } from '../../helpers/toastAlerts';
 import { GoogleLogin } from '@react-oauth/google';
 import jwtDecode from 'jwt-decode';
-import { gmailService } from '../../services/GmailService';
 import GoogleAuth from '../GoogleAuth/GoogleAuth';
 
 

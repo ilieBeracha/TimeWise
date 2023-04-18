@@ -1,7 +1,5 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { useForm } from 'react-hook-form';
 import { UserInterface } from '../../models/UserModel';
@@ -44,7 +42,7 @@ export default function Login() {
   }
   return (
     <div className='authForm'>
-      <button className='authFormBtn' onClick={handleOpen}>Login</button>
+      <button style={{fontSize:'14px'}} className='authFormBtn' onClick={handleOpen}>Login</button>
       <Modal
         open={open}
         onClose={handleClose}

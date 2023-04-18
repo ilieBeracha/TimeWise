@@ -1,3 +1,6 @@
 .Login {
 	
 }
+.Login .authFormBtn button{
+    font-size: 14px;
+}
