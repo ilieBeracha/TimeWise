@@ -3,8 +3,8 @@ import cors from 'cors'
 import * as dotenv from 'dotenv'
 import { UserRoute } from "./4-controllers/userRoute";
 
+dotenv.config();
 
-dotenv.config()
 const server = express();
 
 server.use(cors())
