@@ -5,10 +5,10 @@ export async function getPrefrencesFromOpenai(message: any) {
     
     const messages:any = [
         {
-            role: 'system', content: 'Act like an travel assistant who knows the world perfectly, write only in json format! : [{country: ___ , reccomendedCity: ___ ,description: ___}] give at least 10 destinations'
+            role: 'system', content: 'Act like an travel assistant who knows the world perfectly, write only in json format! : [{country: ___ , reccomendedCity: ___ ,description: ___}] , do not leave comments or anything not in the format i requested. give at least 10 destinations'
         },
         {
-            role:'user', content: `the type of the vacation is : ${message.type} , the budget is : ${message.budget} , the time is : ${message.time} , with : ${message.with} , the weather : ${message.weather} departure from Tel Aviv, Israel`
+            role:'user', content: `the type of the vacation is : ${message.type} , the budget is : ${message.budget} , from : ${message.arrive} to : ${message.return} , with : ${message.with} , additional information : ${message.extrainfo} departure from Tel Aviv, Israel`
         }
     ]
 

@@ -11,6 +11,8 @@ import { openaiService } from "../../services/OpenaiService";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setRecommendation } from "../../app/recommendationSlice";
+import { vacationsTypesData } from "../../helpers/vacationTypeData";
+import VacationType from "../../Components/VacationType/VacationType";
 
 export default function Prefrences() {
   const [activeStep, setActiveStep] = React.useState(0);
@@ -18,11 +20,21 @@ export default function Prefrences() {
   const { register, handleSubmit } = useForm<PrefrencesInterface>();
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const [answerFilled, setAnswerFilled] = useState<string>("");
+  // const [answerFilled, setAnswerFilled] = useState<string>("");
+  const [vacationsTypes, setVacationsTypes] = useState<any>(vacationsTypesData);
+  const [selectedVacationType, setSelectedVacationType] = useState<any>();
 
   async function sendPrefrences(pref: any) {
     setLoading(!loading);
-    const results = await openaiService.sendPrefrencesToOpenai(pref);
+    const data = {
+      type: selectedVacationType,
+      budget: pref.budget + "$",
+      arrive: pref.arrive,
+      return: pref.return,
+      with: pref.with + "people",
+      extrainfo: pref.extrainfo,
+    };
+    const results = await openaiService.sendPrefrencesToOpenai(data);
     const parsedPref = JSON.parse(results);
     dispatch(setRecommendation(parsedPref));
     setLoading(!loading);
@@ -33,7 +45,7 @@ export default function Prefrences() {
   };
 
   const handleNext = () => {
-    setAnswerFilled("");
+    // setAnswerFilled("");
     let newSkipped = skipped;
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
@@ -51,10 +63,6 @@ export default function Prefrences() {
   const handleReset = () => {
     setActiveStep(0);
   };
-
-  React.useEffect(() => {
-    console.log(answerFilled);
-  }, [answerFilled]);
 
   return (
     <div className="Prefrences">
@@ -146,7 +154,7 @@ export default function Prefrences() {
           </svg>
         </main>
       ) : (
-        <Box sx={{ width: "100%", height: "80%" }}>
+        <Box sx={{ width: "100%", height: "80%", marginTop: "30px" }}>
           <Stepper activeStep={activeStep}>
             <Step>
               <StepLabel></StepLabel>
@@ -167,50 +175,155 @@ export default function Prefrences() {
           <form onSubmit={handleSubmit(sendPrefrences)}>
             {activeStep === 0 && (
               <div className="QuestionDiv">
-                <h1>What type of vacation are you looking for?</h1>
-                <textarea
+                <div className="QuestionDivHeader">
+                  <h1>What type of vacation are you looking for?</h1>
+                  <Button id="NextButton" type="button" onClick={handleNext}>
+                    {/* {activeStep === 4 ? "Finish" : "Next"} */}
+                    Next
+                  </Button>
+                </div>
+                {/* <textarea
                   placeholder="Beach vacation, City break ,Adventure vacation, Luxury vacation, Wellness retreat, Cultural vacation, Safari vacation, Ski vacation, Road trip vacation, Cruise vacation..."
                   {...register("type")}
                   onChange={(e) => setAnswerFilled(e.target.value)}
-                ></textarea>
+                ></textarea> */}
+                <div className="vacationsTypesDiv">
+                  {vacationsTypes.map((vaca: any) => (
+                    <VacationType
+                      vaca={vaca}
+                      setSelectedVacationType={setSelectedVacationType}
+                    />
+                  ))}
+                </div>
               </div>
             )}
             {activeStep === 1 && (
               <div className="QuestionDiv">
-                <h1>What is your budget for this vacation?</h1>
-                <textarea
+                <div className="QuestionDivHeader">
+                  <h1>What is your budget for this vacation?</h1>
+                  <div className="QuestionsBtns">
+                    <Button
+                      id="PrevButton"
+                      type="button"
+                      color="inherit"
+                      onClick={handleBack}
+                      sx={{ mr: 1 }}
+                    >
+                      Back
+                    </Button>
+                    <Button id="NextButton" type="button" onClick={handleNext}>
+                      {/* {activeStep === 4 ? "Finish" : "Next"} */}
+                      Next
+                    </Button>
+                  </div>
+                </div>
+                {/* <textarea
                   {...register("budget")}
-                  onChange={(e) => setAnswerFilled(e.target.value)}
-                ></textarea>
+                  // onChange={(e) => setAnswerFilled(e.target.value)}
+                ></textarea> */}
+                <input
+                  id="budgetInput"
+                  type="number"
+                  placeholder="$"
+                  {...register("budget")}
+                />
               </div>
             )}
             {activeStep === 2 && (
               <div className="QuestionDiv">
-                <h1>When are you planning on taking this vacation?</h1>
-                <input
-                  type="date"
-                  {...register("time")}
-                  onChange={(e) => setAnswerFilled(e.target.value)}
-                />
+                <div className="QuestionDivHeader">
+                  <h1>When are you planning on taking this vacation?</h1>
+                  <div className="QuestionsBtns">
+                    <Button
+                      id="PrevButton"
+                      type="button"
+                      color="inherit"
+                      onClick={handleBack}
+                      sx={{ mr: 1 }}
+                    >
+                      Back
+                    </Button>
+                    <Button id="NextButton" type="button" onClick={handleNext}>
+                      {/* {activeStep === 4 ? "Finish" : "Next"} */}
+                      Next
+                    </Button>
+                  </div>
+                </div>
+                <div className="DateInputs">
+                  <label htmlFor="arrive">Arrival:</label>
+                  <input
+                    type="date"
+                    id="arrive"
+                    {...register("arrive")}
+                    className="DateInput"
+                  />
+                  <label htmlFor="return">Departure:</label>
+                  <input
+                    type="date"
+                    id="return"
+                    {...register("return")}
+                    className="DateInput"
+                  />
+                </div>
               </div>
             )}
             {activeStep === 3 && (
               <div className="QuestionDiv">
-                <h1>Who will be traveling with you?</h1>
-                <textarea
+                <div className="QuestionDivHeader">
+                  <h1>Who will be traveling with you?</h1>
+                  <div className="QuestionsBtns">
+                    <Button
+                      id="PrevButton"
+                      type="button"
+                      color="inherit"
+                      onClick={handleBack}
+                      sx={{ mr: 1 }}
+                    >
+                      Back
+                    </Button>
+                    <Button id="NextButton" type="button" onClick={handleNext}>
+                      {/* {activeStep === 4 ? "Finish" : "Next"} */}
+                      Next
+                    </Button>
+                  </div>
+                </div>
+                {/* <textarea
                   {...register("with")}
-                  onChange={(e) => setAnswerFilled(e.target.value)}
-                ></textarea>
+                  // onChange={(e) => setAnswerFilled(e.target.value)}
+                ></textarea> */}
+                <input
+                  id="withInput"
+                  type="number"
+                  placeholder=""
+                  {...register("with")}
+                />
               </div>
             )}
             {activeStep === 4 && (
               <div className="QuestionDiv">
-                <h1>
-                  What kind of climate or weather do you prefer for a vacation?
-                </h1>
+                <div className="QuestionDivHeader">
+                  <h1>
+                    Any additional information? (feel free to write as you wish)
+                  </h1>
+                  <div className="QuestionsBtns">
+                    <Button
+                      id="PrevButton"
+                      type="button"
+                      color="inherit"
+                      onClick={handleBack}
+                      sx={{ mr: 1 }}
+                    >
+                      Back
+                    </Button>
+                    <Button id="NextButton" type="button" onClick={handleNext}>
+                      {/* {activeStep === 4 ? "Finish" : "Next"} */}
+                      Finish
+                    </Button>
+                  </div>
+                </div>
                 <textarea
-                  {...register("weather")}
-                  onChange={(e) => setAnswerFilled(e.target.value)}
+                  {...register("extrainfo")}
+                  // onChange={(e) => setAnswerFilled(e.target.value)}
                 ></textarea>
               </div>
             )}
@@ -225,7 +338,7 @@ export default function Prefrences() {
             ) : (
               <React.Fragment>
                 <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-                  <Button
+                  {/* <Button
                     id="PrevButton"
                     type="button"
                     color="inherit"
@@ -234,9 +347,9 @@ export default function Prefrences() {
                     sx={{ mr: 1 }}
                   >
                     Back
-                  </Button>
+                  </Button> */}
                   <Box sx={{ flex: "1 1 auto" }} />
-                  {answerFilled === "" ? (
+                  {/* {answerFilled === "" ? (
                     <Button
                       disabled={true}
                       id="NextButton"
@@ -245,11 +358,7 @@ export default function Prefrences() {
                     >
                       {activeStep === 4 ? "Finish" : "Next"}
                     </Button>
-                  ) : (
-                    <Button id="NextButton" type="button" onClick={handleNext}>
-                      {activeStep === 4 ? "Finish" : "Next"}
-                    </Button>
-                  )}
+                  ) : ( */}
                 </Box>
               </React.Fragment>
             )}

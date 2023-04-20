@@ -4,9 +4,9 @@ import { imagesService } from '../../services/imagesService';
 
 function Vacation({vacation} : {vacation:any}){
     const [image,setImage] = useState<any>();
-    // setImage(res.hits[0].largeImageURL)
+    
     useEffect(()=>{
-        imagesService.getPhotosByCountry(vacation.country).then((res)=> console.log(res) )
+        imagesService.getPhotosByCountry(vacation.country).then((res)=> setImage(res.hits[0].largeImageURL) )
     },[]);
 
     return(

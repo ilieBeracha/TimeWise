@@ -1,5 +1,8 @@
 .App {
   width: 100vw;
   max-height: 100vh;
-  background-image: url(./assets/images/background2.jpg);
+  /* background-image: url(./assets/images/background2.jpg); */
+  background-image: url(../../assets/images/stars.png);
+  background-size: cover;
+  background-color: #253237;
 }

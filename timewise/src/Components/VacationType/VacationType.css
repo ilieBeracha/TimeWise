@@ -1,0 +1,23 @@
+.VacationType{
+    width: 160px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid #ccc; */
+    border-radius: 10px;
+    background-color: white;
+    color: #969696;
+    cursor: pointer;
+}
+
+.VacationType:hover{
+    position: relative;
+    bottom: 5px;
+    
+}
+
+.vacationChosen{
+    background-color: #1E9CF8;
+    color: white;
+}

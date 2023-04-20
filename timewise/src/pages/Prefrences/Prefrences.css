@@ -1,20 +1,51 @@
-.Prefrences{
-    width: 80%;
-    height: 90vh;
-    margin: 0 auto;
-    display: flex;
+.Prefrences {
+  width: 100%;
+  height: 90vh;
+  margin: 0 auto;
+  /* display: flex;
     justify-content: center;
-    align-items: center;
-    color: black;
+    align-items: center; */
+  color: black;
+  background-color: #f2f2f2;
+  box-sizing: border-box;
+  padding: 0 50px;
+  padding-top: 50px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  position: relative;
 }
-
+.css-pac9q0 {
+  height: 90% !important;
+}
 .QuestionDiv {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  margin-top: 20px;
+  /* justify-content: center; */
+  /* align-items: center; */
   height: 90%;
   gap: 30px;
+}
+.QuestionDivHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+.QuestionsBtns{
+	width: 20%;
+}
+.vacationsTypesDiv {
+  width: 100%;
+  height: 90%;
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
 }
 
 .QuestionDiv h1 {
@@ -32,139 +63,222 @@
   color: black;
 }
 
-.Prefrences form{
+.Prefrences form {
   height: 100%;
 }
 
-#PrevButton{
-  width: 40%;
-  padding: 10px;
+#PrevButton {
+	padding: 10px;
+	width: 40%;
+	height: 50px;
 }
 
-#NextButton{
-  background-color: blue;
+#NextButton {
+  background-color: #253237;
   color: white;
   padding: 10px;
   width: 40%;
+  height: 50px;
 }
 
-
-main {
-	padding: 1.5em 0;
+.Prefrences main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .sp {
-	display: block;
-	width: 8em;
-	height: 8em;
+  display: block;
+  width: 8em;
+  height: 8em;
 }
 .sp__ring {
-	stroke: hsla(var(--hue),90%,5%,0.1);
-	transition: stroke 0.3s;
+  stroke: hsla(var(--hue), 90%, 5%, 0.1);
+  transition: stroke 0.3s;
 }
 .sp__worm1,
 .sp__worm2,
 .sp__worm2-1 {
-	animation: worm1 5s ease-in infinite;
+  animation: worm1 5s ease-in infinite;
 }
 .sp__worm1 {
-	transform-origin: 64px 64px;
+  transform-origin: 64px 64px;
 }
 .sp__worm2,
 .sp__worm2-1 {
-	transform-origin: 22px 22px;
+  transform-origin: 22px 22px;
 }
 .sp__worm2 {
-	animation-name: worm2;
-	animation-timing-function: linear;
+  animation-name: worm2;
+  animation-timing-function: linear;
 }
 .sp__worm2-1 {
-	animation-name: worm2-1;
-	stroke-dashoffset: 175.92;
+  animation-name: worm2-1;
+  stroke-dashoffset: 175.92;
 }
 
 /* Dark theme */
 @media (prefers-color-scheme: dark) {
-	:root {
-		--bg: hsl(var(--hue),90%,5%);
-		--fg: hsl(var(--hue),90%,95%);
-	}
-	.sp__ring {
-		stroke: hsla(var(--hue),90%,95%,0.1);
-	}
+  :root {
+    --bg: hsl(var(--hue), 90%, 5%);
+    --fg: hsl(var(--hue), 90%, 95%);
+  }
+  .sp__ring {
+    stroke: hsla(var(--hue), 90%, 95%, 0.1);
+  }
 }
 
 /* Animations */
 @keyframes worm1 {
-	from,
-	to {
-		stroke-dashoffset: 0
-	}
-	12.5% {
-		animation-timing-function: ease-out;
-		stroke-dashoffset: -175.91;
-	}
-	25% {
-		animation-timing-function: cubic-bezier(0,0,0.43,1);
-		stroke-dashoffset: -307.88;
-	}
-	50% {
-		animation-timing-function: ease-in;
-		stroke-dashoffset: -483.8;
-	}
-	62.5% {
-		animation-timing-function: ease-out;
-		stroke-dashoffset: -307.88;
-	}
-	75% {
-		animation-timing-function: cubic-bezier(0,0,0.43,1);
-		stroke-dashoffset: -175.91;
-	}
+  from,
+  to {
+    stroke-dashoffset: 0;
+  }
+  12.5% {
+    animation-timing-function: ease-out;
+    stroke-dashoffset: -175.91;
+  }
+  25% {
+    animation-timing-function: cubic-bezier(0, 0, 0.43, 1);
+    stroke-dashoffset: -307.88;
+  }
+  50% {
+    animation-timing-function: ease-in;
+    stroke-dashoffset: -483.8;
+  }
+  62.5% {
+    animation-timing-function: ease-out;
+    stroke-dashoffset: -307.88;
+  }
+  75% {
+    animation-timing-function: cubic-bezier(0, 0, 0.43, 1);
+    stroke-dashoffset: -175.91;
+  }
 }
 @keyframes worm2 {
-	from,
-	12.5%,
-	75%,
-	to {
-		transform: rotate(0) translate(-42px,0);
-	}
-	25%,
-	62.5% {
-		transform: rotate(0.5turn) translate(-42px,0);
-	}
+  from,
+  12.5%,
+  75%,
+  to {
+    transform: rotate(0) translate(-42px, 0);
+  }
+  25%,
+  62.5% {
+    transform: rotate(0.5turn) translate(-42px, 0);
+  }
 }
 @keyframes worm2-1 {
-	from {
-		stroke-dashoffset: 175.91;
-		transform: rotate(0);
-	}
-	12.5% {
-		animation-timing-function: cubic-bezier(0,0,0.42,1);
-		stroke-dashoffset: 0;
-		transform: rotate(0);
-	}
-	25% {
-		animation-timing-function: linear;
-		stroke-dashoffset: 0;
-		transform: rotate(1.5turn);
-	}
-	37.5%,
-	50% {
-		stroke-dashoffset: -175.91;
-		transform: rotate(1.5turn);
-	}
-	62.5% {
-		animation-timing-function: cubic-bezier(0,0,0.42,1);
-		stroke-dashoffset: 0;
-		transform: rotate(1.5turn);
-	}
-	75% {
-		animation-timing-function: linear;
-		stroke-dashoffset: 0;
-		transform: rotate(0);
-	}
-	87.5%,
-	to {
-		stroke-dashoffset: 175.92;
-		transform: rotate(0);
-	}
+  from {
+    stroke-dashoffset: 175.91;
+    transform: rotate(0);
+  }
+  12.5% {
+    animation-timing-function: cubic-bezier(0, 0, 0.42, 1);
+    stroke-dashoffset: 0;
+    transform: rotate(0);
+  }
+  25% {
+    animation-timing-function: linear;
+    stroke-dashoffset: 0;
+    transform: rotate(1.5turn);
+  }
+  37.5%,
+  50% {
+    stroke-dashoffset: -175.91;
+    transform: rotate(1.5turn);
+  }
+  62.5% {
+    animation-timing-function: cubic-bezier(0, 0, 0.42, 1);
+    stroke-dashoffset: 0;
+    transform: rotate(1.5turn);
+  }
+  75% {
+    animation-timing-function: linear;
+    stroke-dashoffset: 0;
+    transform: rotate(0);
+  }
+  87.5%,
+  to {
+    stroke-dashoffset: 175.92;
+    transform: rotate(0);
+  }
+}
+
+.range-slider {
+  position: relative;
+  height: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+input[type="range"] {
+  appearance: none;
+  width: 100%;
+  height: 10px;
+  background-color: #fff;
+  outline: none;
+  border-radius: 5px;
+}
+
+.range-fill {
+  position: absolute;
+  height: 10px;
+  background-color: #f32c7c;
+  border-radius: 5px;
+  top: 0;
+  left: 0;
+}
+
+.range-value {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  color: #f32c7c;
+  font-size: 24px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+}
+
+.css-m5vj9m-MuiStepper-root {
+  position: absolute;
+  top: 20px;
+  width: 92%;
+}
+
+.DateInputs {
+  display: flex;
+  align-items: center;
+}
+
+.DateInputs label {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.DateInputs .DateInput {
+  width: 150px;
+  height: 30px;
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.DateInputs .DateInput:focus {
+  outline: none;
+  box-shadow: 0 0 5px #aaa;
+}
+
+#budgetInput,
+#withInput {
+  width: 200px;
+  height: 50px;
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px;
 }
